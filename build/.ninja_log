@@ -1,0 +1,11 @@
+# ninja log v5
+0	28	0	clean:Debug	d1d9d068de73bfac
+2637	3251	1623306015440273200	Editor/Debug/Editor	d6ca9b95a15359b5
+3	383	1623133255515301300	Core/CMakeFiles/Core.dir/Debug/src/fnt/ft.cpp.o	65ad2c538a570a07
+21	2637	1623306014815130000	Editor/CMakeFiles/Editor.dir/Debug/src/main.cpp.o	ce23b0319f686933
+3	66	1623086008444879200	Core/CMakeFiles/Core.dir/Debug/src/parse.cpp.o	953b1457b76252c9
+5	1894	1623306014073457400	Core/CMakeFiles/Core.dir/Debug/src/core/ft.cpp.o	2c2248efaaf5532
+1894	1993	1623306014186482800	Core/Debug/libCore.a	6bb3ae627cd7a786
+1	65	1623086008443879100	Core/CMakeFiles/Core.dir/Debug/include/image.cpp.o	7996fc7ce17186bc
+3	92	1623184195302754200	Core/CMakeFiles/Core.dir/Debug/include/core/image.cpp.o	4d167f919b2056f4
+19	1861	1623306014038449700	Core/CMakeFiles/Core.dir/Debug/src/core/hb.cpp.o	b741d963e8affa38
