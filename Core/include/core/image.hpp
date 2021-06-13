@@ -130,4 +130,4 @@ public:
         return std::span { buffer.data() + row * w, (u32) w };
     }
 };
-}sudo ldconfig -p | grep -i gl.so
+}

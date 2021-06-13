@@ -85,6 +85,9 @@ int on_event(EditorData * data, SDL_Event event)
 
 int main(int argc, char * argv[])
 {
+    SDL_Init(SDL_INIT_EVERYTHING);
+    log::info(SDL_GetError());
+
     std::vector<std::string_view> lines
     {
         "1: | Line == 1",
@@ -103,8 +106,6 @@ int main(int argc, char * argv[])
 
     log::info("Loaded face: %s, %s", face.get_family_name(), face.get_style_name());
 
-    SDL_Init(SDL_INIT_EVERYTHING);
-
     EditorData data = {
         .width = 1280,
         .height = 720,
@@ -120,7 +121,11 @@ int main(int argc, char * argv[])
         SDL_WINDOW_RESIZABLE
     );
 
-    SDL_AddEventWatch((SDL_EventFilter) on_event, &data);
+    // TODO@Daniel:
+    //  Using event filters/watches in linux/wsl doesn't send most events properly
+    //  On the other hand, this is required for Windows
+    //  This difference should be handled in some kind of wrapper
+    // SDL_SetEventFilter((SDL_EventFilter) on_event, &data);
 
     hb::buffer buffer;
     while (data.is_running)
@@ -130,6 +135,11 @@ int main(int argc, char * argv[])
         img::color color(38, 50, 56);
 
         SDL_Surface * surface = SDL_GetWindowSurface(window);
+        if (surface == nullptr)
+        {
+            log::info(SDL_GetError());
+        }
+
         SDL_FillRect(surface, NULL, color.value());
 
         int cursor_y = 0;
@@ -208,7 +218,14 @@ int main(int argc, char * argv[])
 
         SDL_UpdateWindowSurface(window);
 
-        SDL_PollEvent(NULL);
+        // TODO@Daniel:
+        //  Manually polling events on linux/wsl provides smooth resize/scroll events
+        //  This does not work on Windows, where only the first and last one are received
+        SDL_Event event;
+        while(SDL_PollEvent(&event))
+        {
+            on_event(&data, event);
+        }
 
         SDL_Delay(90);
     }
