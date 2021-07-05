@@ -6,7 +6,7 @@
 #include <string>
 #include <string_view>
 
-namespace log
+namespace gsm::log
 {
 
 #define FORE(r, g, b) "\e[38;2;" #r ";" #g ";" #b "m"

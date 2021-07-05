@@ -8,4 +8,9 @@ include(settings)
 make_executable(Benchmark)
 
 find_package(benchmark CONFIG REQUIRED)
-target_link_libraries(Benchmark Core benchmark::benchmark benchmark::benchmark_main)
+target_link_libraries(
+    Benchmark PRIVATE
+        Core
+        benchmark::benchmark
+        benchmark::benchmark_main
+)

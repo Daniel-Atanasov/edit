@@ -9,7 +9,7 @@
 
 #include <core/misc.hpp>
 
-namespace img
+namespace gsm::img
 {
 template <std::integral T = i64>
 struct vec

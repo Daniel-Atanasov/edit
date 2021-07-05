@@ -1,6 +1,6 @@
 #include <core/hb.hpp>
 
-namespace hb
+namespace gsm::hb
 {
 hb::buffer::buffer(hb::buffer const & other) : handle(other.handle)
 {

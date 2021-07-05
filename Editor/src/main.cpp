@@ -25,6 +25,8 @@
 #include <core/ft.hpp>
 #include <core/hb.hpp>
 
+using namespace gsm;
+
 auto to_font_units(auto value)
 {
     return value * 64;
@@ -35,7 +37,7 @@ auto from_font_units(auto value)
     return value / 64;
 }
 
-std::string filename = "/home/daniel/.local/share/fonts/CascadiaCodePLItalic-BoldItalic.ttf";
+std::string filename = "C:/Users/Admin/AppData/Local/Microsoft/Windows/Fonts/CascadiaCodePL.ttf";
 
 struct EditorData
 {
@@ -85,8 +87,8 @@ int on_event(EditorData * data, SDL_Event event)
 
 int main(int argc, char * argv[])
 {
-    SDL_Init(SDL_INIT_EVERYTHING);
-    log::info(SDL_GetError());
+    SDL_Init(SDL_INIT_VIDEO);
+    log::error(SDL_GetError());
 
     std::vector<std::string_view> lines
     {
@@ -206,7 +208,7 @@ int main(int argc, char * argv[])
                     }
                 }
 
-                img::vec<i64> advance = glyph.get_advance();
+                img::vec<long> advance = glyph.get_advance();
                 cursor_x += from_font_units(advance.x);
                 cursor_y -= from_font_units(advance.y);
 

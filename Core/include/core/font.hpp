@@ -6,7 +6,7 @@
 #include <core/log.hpp>
 #include <core/misc.hpp>
 
-namespace fnt
+namespace gsm::fnt
 {
 struct glyph_id
 {
@@ -24,24 +24,12 @@ static_assert(sizeof(fnt::glyph_id) == 8, "sizeof(fnt::glyph_id) is expected to 
 namespace std
 {
 template <>
-struct hash<fnt::glyph_id>
+struct hash<gsm::fnt::glyph_id>
 {
-    u64 operator()(fnt::glyph_id id) const
+    u64 operator()(gsm::fnt::glyph_id id) const
     {
         return *(u64 *)&id;
     }
-};
-}
-
-namespace fnt
-{
-struct font_cache
-{
-private:
-    std::unordered_map<fnt::glyph_id, img::image> map;
-
-public:
-    
 };
 }
 

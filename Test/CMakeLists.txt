@@ -8,4 +8,8 @@ include(settings)
 make_executable(Test)
 
 find_package(Catch2 CONFIG REQUIRED)
-target_link_libraries(Test Core Catch2::Catch2 Catch2::Catch2WithMain)
+target_link_libraries(
+    Test PRIVATE
+        Core
+        Catch2::Catch2
+)

@@ -9,7 +9,7 @@
 
 #include <core/log.hpp>
 
-namespace ft
+namespace gsm::ft
 {
 namespace
 {
@@ -26,7 +26,7 @@ i32 ft::glyph::get_top()
     return handle->bitmap_top;
 }
 
-img::vec<i64> ft::glyph::get_advance()
+img::vec<long> ft::glyph::get_advance()
 {
     return img::vec { handle->advance.x, handle->advance.y };
 }
@@ -89,7 +89,7 @@ u32 ft::face::get_index(u32 cp)
     return FT_Get_Char_Index(handle, cp);
 }
 
-img::vec<i64> ft::face::get_kerning(u32 last, u32 next)
+img::vec<long> ft::face::get_kerning(u32 last, u32 next)
 {
     FT_Vector delta;
     FT_Get_Kerning(handle, last, next, FT_KERNING_DEFAULT, &delta);

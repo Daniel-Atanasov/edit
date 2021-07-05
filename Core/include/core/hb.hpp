@@ -8,7 +8,7 @@
 
 #include <core/ft.hpp>
 
-namespace hb
+namespace gsm::hb
 {
 using glyph = hb_glyph_info_t;
 

@@ -8,12 +8,12 @@
 #include <core/misc.hpp>
 #include <core/image.hpp>
 
-namespace ft
+namespace gsm::ft
 {
 struct metrics
 {
     img::vec<u16> em;
-    img::vec<i64> scale;
+    img::vec<long> scale;
 
     i64 ascender    = 0;
     i64 descender   = 0;
@@ -45,7 +45,7 @@ public:
     i32 get_left();
     i32 get_top();
 
-    img::vec<i64> get_advance();
+    img::vec<long> get_advance();
 
     img::image get_image();
 
@@ -75,7 +75,7 @@ public:
     std::string get_style_name();
 
     u32 get_index(u32 cp);
-    img::vec<i64> get_kerning(u32 last, u32 next);
+    img::vec<long> get_kerning(u32 last, u32 next);
     ft::metrics get_metrics();
     ft::glyph get_glyph();
 
